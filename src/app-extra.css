@@ -1,0 +1,136 @@
+/* Estilos adicionales para SideBar estilo shadcn/ui */
+
+/* Scroll personalizado para el sidebar */
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 3px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Animación suave para los elementos del menú */
+.menu-item-hover {
+  position: relative;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item-hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(135deg, #003E83, #002550);
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 4px 4px 0;
+}
+
+.menu-item-hover:hover::before {
+  width: 4px;
+}
+
+/* Efecto de profundidad para elementos activos */
+.menu-item-active {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border-left: 4px solid #3b82f6;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Animación para iconos de expansión */
+.expand-icon {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto glassmorphism para el header del sidebar */
+.sidebar-header {
+  background: linear-gradient(135deg, #003E83 0%, #002550 100%);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.sidebar-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  pointer-events: none;
+}
+
+/* Estilo para badges */
+.command-badge {
+  background: linear-gradient(135deg, #003E83, #002550);
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación de entrada para los elementos del menú */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.menu-item-enter {
+  animation: slideIn 0.2s ease-out;
+}
+
+/* Efecto hover mejorado para botones */
+.sidebar-button {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(0, 62, 131, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.sidebar-button:hover::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* Mejora para el estado focus */
+.sidebar-button:focus-visible {
+  outline: 2px solid #003E83;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
